@@ -938,6 +938,7 @@ const pkg = Object.assign(Command, {
 })
 
 export { useCmdk as useCommandState }
+export { useStore as useCommandStore }
 export { pkg as Command }
 export { defaultFilter }
 

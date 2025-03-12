@@ -1,6 +1,6 @@
 {
-  "name": "cmdk",
-  "version": "1.0.4",
+  "name": "@frankchen029/cmdk",
+  "version": "1.0.8",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
