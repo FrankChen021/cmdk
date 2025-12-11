@@ -622,6 +622,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
               if (!e.nativeEvent.isComposing && e.keyCode !== 229) {
                 // Trigger item onSelect
                 e.preventDefault()
+                e.stopPropagation()
                 const item = getSelectedItem()
                 if (item) {
                   const event = new Event(SELECT_EVENT)
@@ -710,7 +711,10 @@ const Item = React.forwardRef<HTMLDivElement, ItemProps>((props, forwardedRef) =
       data-disabled={Boolean(disabled)}
       data-selected={Boolean(selected)}
       onPointerMove={disabled || context.getDisablePointerSelection() ? undefined : select}
-      onClick={disabled ? undefined : onSelect}
+      onClick={disabled ? undefined : (e) => {
+        e.stopPropagation()
+        onSelect()
+      }}
     >
       {props.children}
     </Primitive.div>
