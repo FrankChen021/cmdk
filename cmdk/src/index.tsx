@@ -539,6 +539,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
 
   const next = (e: React.KeyboardEvent) => {
     e.preventDefault()
+    e.stopPropagation()
 
     if (e.metaKey) {
       // Last item
@@ -554,6 +555,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
 
   const prev = (e: React.KeyboardEvent) => {
     e.preventDefault()
+    e.stopPropagation()
 
     if (e.metaKey) {
       // First item
@@ -605,12 +607,14 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
             case 'Home': {
               // First item
               e.preventDefault()
+              e.stopPropagation()
               updateSelectedToIndex(0)
               break
             }
             case 'End': {
               // Last item
               e.preventDefault()
+              e.stopPropagation()
               last()
               break
             }
